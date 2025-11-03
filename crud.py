@@ -3,3 +3,11 @@ import pandas as pd
 def get_planilha(caminho):
     df = pd.read_excel(caminho, engine='openpyxl') if caminho.endswith(('.xls', '.xlsm')) else pd.read_csv(caminho)
     print(df)
+
+def delete_linha(caminho, indice):
+    df = pd.read_excel(caminho, engine='openpyxl') if caminho.endswith(('.xls', '.xlsm')) else pd.read_csv(caminho)
+    df = df.drop(indice)
+    if caminho.endswith('.csv'):
+        df.to_csv(caminho, index=False)
+    else:
+        df.to_excel(caminho, index=False)
