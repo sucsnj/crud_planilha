@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD Planilha</title>
+</head>
+<body>
+    <!-- GET -->
+    <h1>Visualização da Planilha</h1>
+    {{ tabela|safe }}
+
+    <h2>Adicionar Linha</h2>
+    <form action="/post" method="post">
+        <input name="col1" placeholder="Coluna 1">
+        <input name="col2" placeholder="Coluna 2">
+        <button type="submit">Adicionar</button>
+    </form>
+
+    </body>
+</html>
