@@ -11,3 +11,11 @@ def delete_linha(caminho, indice):
         df.to_csv(caminho, index=False)
     else:
         df.to_excel(caminho, index=False)
+
+def post_linha(caminho, dados):
+    df = pd.read_excel(caminho, engine='openpyxl') if caminho.endswith(('.xls', '.xlsm')) else pd.read_csv(caminho)
+    df.loc[len(df)] = dados
+    if caminho.endswith('.csv'):
+        df.to_csv(caminho, index=False)
+    else:
+        df.to_excel(caminho, index=False)
